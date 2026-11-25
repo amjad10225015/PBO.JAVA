@@ -1,0 +1,13 @@
+import javax.swing.JOptionPane;
+
+public class modul2_3
+{
+    public static void main(String[] args)
+    {
+        String nama = " ";
+        nama = JOptionPane.showInputDialog("Masukkan nama");
+        String mag = "Selamat Tidur = " + nama;
+        JOptionPane.showMessageDialog(null,mag);
+        
+    }    
+}
