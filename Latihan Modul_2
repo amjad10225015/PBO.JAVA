@@ -1,0 +1,111 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author SEPTIAN
+ */
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
+public class NewClass {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+        int pilihan;
+
+        System.out.println("=================================");
+        System.out.println("   PROGRAM PERHITUNGAN BANGUN");
+        System.out.println("=================================");
+        System.out.println("1. Keliling Lingkaran");
+        System.out.println("2. Luas Trapesium");
+        System.out.println("3. Luas Prisma Segitiga");
+        System.out.println("=================================");
+        System.out.print("Pilih Menu (1-3): ");
+
+        pilihan = sc.nextInt();
+
+        switch (pilihan) {
+
+            // 1. MENGGUNAKAN SCANNER
+            case 1:
+                System.out.println("\n--- KELILING LINGKARAN ---");
+
+                System.out.print("Masukkan jari-jari: ");
+                double r = sc.nextDouble();
+
+                double keliling = 2 * Math.PI * r;
+
+                System.out.println("Keliling Lingkaran = " + keliling);
+                break;
+
+            // 2. MENGGUNAKAN BUFFEREDREADER
+            case 2:
+                BufferedReader br = new BufferedReader(
+                    new InputStreamReader(System.in)
+                );
+
+                System.out.println("\n--- LUAS TRAPESIUM ---");
+
+                System.out.print("Masukkan sisi atas: ");
+                double a = Double.parseDouble(br.readLine());
+
+                System.out.print("Masukkan sisi bawah: ");
+                double b = Double.parseDouble(br.readLine());
+
+                System.out.print("Masukkan tinggi: ");
+                double t = Double.parseDouble(br.readLine());
+
+                double luasTrapesium = ((a + b) * t) / 2;
+
+                System.out.println("Luas Trapesium = " + luasTrapesium);
+                break;
+
+            // 3. MENGGUNAKAN JOPTIONPANE
+            case 3:
+                JOptionPane.showMessageDialog(
+                    null, "PERHITUNGAN LUAS PRISMA SEGITIGA"
+                );
+
+                double alas = Double.parseDouble(
+                    JOptionPane.showInputDialog("Masukkan alas segitiga:")
+                );
+
+                double tinggiSegitiga = Double.parseDouble(
+                    JOptionPane.showInputDialog("Masukkan tinggi segitiga:")
+                );
+
+                double panjangPrisma = Double.parseDouble(
+                    JOptionPane.showInputDialog("Masukkan panjang prisma:")
+                );
+
+                double sisiMiring = Double.parseDouble(
+                    JOptionPane.showInputDialog("Masukkan sisi miring segitiga:")
+                );
+
+                double luasAlas = (alas * tinggiSegitiga) / 2;
+                double luasSelimut = (
+                    alas + tinggiSegitiga + sisiMiring
+                ) * panjangPrisma;
+
+                double luasPrisma = (2 * luasAlas) + luasSelimut;
+
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Luas Prisma Segitiga = " + luasPrisma
+                );
+                break;
+
+            default:
+                System.out.println("Pilihan tidak tersedia!");
+        }
+
+        sc.close();
+    }
+}
